@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "438310001531",
+    "project_id": "coachattendance-c085e",
+    "storage_bucket": "coachattendance-c085e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438310001531:android:3c3006fdbee2cdeb70bbde",
+        "android_client_info": {
+          "package_name": "com.coachattendance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438310001531-inhju8hk0lp2oofmbgn9tuv2jmqigemn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLLp85-PuOAzXZpv1Nsk7Zc-Vla0JuW5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438310001531-inhju8hk0lp2oofmbgn9tuv2jmqigemn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
