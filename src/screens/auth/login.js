@@ -66,13 +66,15 @@ function LoginScreen({ navigation }) {
                         return
                     }
                     navigation.navigate('Register')
+                } else{
+                    AppUtils.showToast({message:"Otp did not match"})
                 }
 
             },
             failureCb: (response) => {
                 setShow(false)
                 AppUtils.showMessage("failure response", response)
-                AppUtils.showToast("Otp did not match")
+                AppUtils.showToast({message:"Otp did not match"})
             }
         }))
         // if(otp!=userOtp) {
