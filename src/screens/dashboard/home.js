@@ -5,7 +5,8 @@ import {
     StyleSheet,
     ScrollView,
     NativeModules,
-    Image
+    Image,
+    Platform
 } from 'react-native'
 import { IconSets } from '../../components/Icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -287,10 +288,37 @@ function Home({ navigation }) {
 
     }
 
+    const requestCameraPermission = async () => {
+        try {
+          const permissionResult = await check(
+            Platform.OS === 'ios'
+              ? PERMISSIONS.IOS.CAMERA
+              : PERMISSIONS.ANDROID.CAMERA,
+          );
+        //   alert("permissionResult "+permissionResult)
+          if (permissionResult === RESULTS.DENIED) {
+            const permissionRequestResult = await request(
+              Platform.OS === 'ios'
+                ? PERMISSIONS.IOS.CAMERA
+                : PERMISSIONS.ANDROID.CAMERA,
+            );
+            if (permissionRequestResult !== RESULTS.GRANTED) {
+              Alert.alert(
+                'Permission Required',
+                'Please enable camera access in your device settings to use this feature.',
+              );
+            }
+          }
+        } catch (error) {
+          console.log('Error while requesting camera permission:', error);
+        }
+      };
+
     useEffect(() => {
         getAttendance()
         // requestLocationPermission()
         requestUserPermission()
+        requestCameraPermission()
     }, [])
 
     useEffect(() => {

@@ -10,6 +10,9 @@ const Drawer = createDrawerNavigator();
 function DrawerNavigation({ navigationProps }) {
     return (
         <Drawer.Navigator initialRouteName={'Home'}
+        screenOptions={{
+            headerShown: false, // Hide the header for all screens
+          }}
         drawerContent={(props) =>
             <Sidebar {...props } />
         }
