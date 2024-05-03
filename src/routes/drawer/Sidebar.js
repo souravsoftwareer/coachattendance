@@ -79,7 +79,7 @@ function Sidebar({ navigation, navigationProp }) {
             navigation.navigate('Login')
           },
           failureCb:(response)=>{
-              AppUtils.showToast('Error while logging out!!!')
+              AppUtils.showToast({message:'Error while logging out!!!'})
           }
         }))
         

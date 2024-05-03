@@ -126,7 +126,7 @@ function LoginScreen({ navigation }) {
                 },
                 failureCb: (response) => {
                     AppUtils.showMessage("failure response", response)
-                    AppUtils.showToast("Unable to send otp")
+                    AppUtils.showToast({ message: "Unable to send otp" })
                 }
             }))
         } catch (err) {

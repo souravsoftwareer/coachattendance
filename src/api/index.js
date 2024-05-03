@@ -3,7 +3,7 @@ import axios from 'axios'
 import RNFetchBlob from 'rn-fetch-blob'
 import AppUtils from '../utils/AppUtils'
 
-export const baseUrl = "https://libcoach.com/coach/api/"
+export const baseUrl = "https://hrhk.in/demo/sportsapp/api"
 
 export const getApi = (config) => {
 
@@ -37,7 +37,7 @@ export const getApi = (config) => {
                 let response = error.response
                 //   resolve(101, error.message);
                 // alert(config.url)
-                // AppUtils.showMessage('error',response)
+                AppUtils.showMessage('error',error)
                 let json = {
                     statusCode: response && response.status?response.status:101,
                     status: response && response.data ? response.data : false
