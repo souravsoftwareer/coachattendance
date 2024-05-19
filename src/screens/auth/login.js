@@ -60,9 +60,12 @@ function LoginScreen({ navigation }) {
                     let data = response.data
                     if (currUser) {
                         onChange('token', data.jwt_token)
+                        AppUtils.showMessage("token ===>",data.jwt_token)
+                        if(data.jwt_token) {
                         await AppUtils.storeItem(TOKEN, data.jwt_token)
                         await AppUtils.storeItem(USER_DATA, JSON.stringify(data))
                         dispatch(loginSuccess(true))
+                        }
                         return
                     }
                     navigation.navigate('Register')

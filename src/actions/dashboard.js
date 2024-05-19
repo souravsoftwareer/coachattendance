@@ -14,12 +14,12 @@ export const getAttendanceData = ({
   successCb,
   failureCb
 }) => async dispatch => {
-  let headers = AppUtils.getAuthHeader()
+  let headers = await AppUtils.getAuthHeader()
+  AppUtils.showMessage("attendance header ",headers)
   let config = {
     method: 'GET',
     endpoint: `getAttendace`,
-    headers,
-    data
+    headers
   }
   dispatch(showLoading(true))
   getApi(config)
@@ -174,7 +174,7 @@ export const attendanceRemark = ({
   successCb,
   failureCb
 }) => async dispatch => {
-  let headers = AppUtils.getAuthHeader()
+  let headers = await AppUtils.getAuthHeader()
   let user = await AppUtils.reteriveItem(USER_DATA)
   let config = {
     method: 'POST',
@@ -218,7 +218,7 @@ export const updateFcmToken = ({
   successCb,
   failureCb
 }) => async dispatch => {
-  let headers = AppUtils.getAuthHeader()
+  let headers = await AppUtils.getAuthHeader()
   let user = await AppUtils.reteriveItem(USER_DATA)
   let config = {
     method: 'POST',
@@ -262,7 +262,7 @@ export const updateHistory = ({
   successCb,
   failureCb
 }) => async dispatch => {
-  let headers = AppUtils.getAuthHeader()
+  let headers = await AppUtils.getAuthHeader()
   
   let config = {
     method: 'POST',

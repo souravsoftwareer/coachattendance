@@ -27,7 +27,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import RNFetchBlob from 'rn-fetch-blob'
 import AddRemark from '../../modals/AddRemark';
 import messaging from '@react-native-firebase/messaging';
-import { check, PERMISSIONS, RESULTS, checkMultiple, requestMultiple } from 'react-native-permissions';
+import { check, PERMISSIONS, RESULTS, checkMultiple, requestMultiple,request } from 'react-native-permissions';
 import BackgroundTimer from 'react-native-background-timer';
 import LocationEnabler from "react-native-location-enabler"
 import ReactNativeForegroundService from '@supersami/rn-foreground-service';
@@ -83,6 +83,10 @@ function Home({ navigation }) {
                     setResponse({ ...response })
                 }
             }).catch((err) => {
+                if (er.code === 'E_PICKER_CANCELLED') {
+                    // here the solution
+                    return false;
+                    }
                 AppUtils.showToast({ message: err.message })
 
             })
@@ -100,10 +104,10 @@ function Home({ navigation }) {
         dispatch(getAttendanceData({
             data,
             successCb: (response) => {
-                AppUtils.showMessage("success", response)
+                AppUtils.showMessage("success attendance", response)
             },
             failureCb: (response) => {
-                AppUtils.showMessage("fail", response)
+                AppUtils.showMessage("fail attendance", response)
             }
         }))
     }

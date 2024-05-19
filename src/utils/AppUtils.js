@@ -92,10 +92,10 @@ const AppUtils = {
         }
         return commonHeaders
     },
-    getAuthHeader: () => {
+    getAuthHeader: async() => {
         let registerData = store.getState().register.user
-        // let token = await AppUtils.reteriveString(TOKEN)
-        let token = registerData.token
+        let token = await AppUtils.reteriveString(TOKEN)
+        // let token = registerData.token
         // alert(token)
         let headers = {
         }

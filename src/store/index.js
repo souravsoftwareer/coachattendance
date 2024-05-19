@@ -14,6 +14,6 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware))
 );
 store.subscribe(() => {
-    AppUtils.showMessage("Redux Store State ===>>>>> ", store.getState())
+    // AppUtils.showMessage("Redux Store State ===>>>>> ", store.getState())
 })
 export default store;

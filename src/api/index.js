@@ -3,13 +3,13 @@ import axios from 'axios'
 import RNFetchBlob from 'rn-fetch-blob'
 import AppUtils from '../utils/AppUtils'
 
-export const baseUrl = "https://hrhk.in/demo/sportsapp/api"
+export const baseUrl = "https://hrhk.in/demo/sportsapp/api/"
 
 export const getApi = (config) => {
 
     return new Promise((resolve, reject) => {
         let url = baseUrl + config.endpoint
-        
+        // AppUtils.showMessage("url ==========> ",url)
         const options = {
             method: config.method,
             url:  url,
@@ -17,7 +17,7 @@ export const getApi = (config) => {
             data: config.data,
             timeout: 70000
         }
-        // AppUtils.showMessage('config', options)
+        // AppUtils.showMessage('config', config)
         axios(options)
             .then(async (response) => {
                 // AppUtils.showMessage('reponnnn', response)
